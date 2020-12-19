@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+		<title>welcome</title>
+	</head>
+	<body>
+		
+
+			<!--背景 -->
+	<link rel="stylesheet" href="/css/stylesheet.css" />
+	<link id="MainCss" rel="stylesheet" href="/css/MainCss.css" />
+	<link type="text/css" rel="stylesheet" href="/css/text.css" />
+	<link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/css/mobile-style.css" />
+			<!--文本 -->
+		<link type="text/css" rel="stylesheet" href="/css/23.css" />
+		
+		<div id="wai" style="width:0px; height:600px; overflow:hidden">
+		<div id="shi">
+		<p> <font face="Arial, Helvetica, sans-serif">
+		The website is under construction. If you need to contact the webmaster, the following is the contact information:
+		<br>e-mail:2243652046@qq.com <br>qq:2243652046 </font></font></p>
+		<p><font  face="Arial, Helvetica, sans-serif">Thank you for your support! </font></p>
+		<p></font>
+		<font face="Arial, Helvetica, sans-serif">   Design by Mr.Zhang <br></font></font></p>
+		</div>
+		<script type="text/javascript">
+		showshi();
+		function showshi()
+		{
+		    var s= document.getElementById("wai");
+		    if(parseInt(s.style.width)<850)
+		    {
+		    var w=parseInt(s.style.width)+1;
+		    s.style.width=w+"px";
+		    window.setTimeout("showshi()",20);
+		    }
+		}
+		</script>
+
+		<!--鼠标点击事件 -->
+	<script src="/js/mouse-click.js" defer></script>
+	<canvas width="1777" height="841" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas>
+		<!-- 背景动画 -->
+	<canvas id="c_n9" width="1920" height="990" style="position: fixed; top: 0px; left: 0px; z-index: -1; opacity: 0.5;"></canvas>
+	<script src="/canvas-nest.min.js" defer></script>
+		<!-- 鼠标爱心 -->
+	<script src="/js/jquery-2.2.0.min.js"></script>
+	<script type="text/javascript">
+	var a_idx = 0;
+	jQuery(document).ready(function($) {
+	    $("body").click(function(e) {
+		var a = new Array("❤","🍊","❤","🍊","🍊","❤","🍊","❤");
+		//-------------------1-2-3-4-5 -1-2 - 1  My Love! 
+		var $i = $("<span></span>").text(a[a_idx]);
+		a_idx = (a_idx + 1) % a.length;
+		var x = e.pageX,
+		y = e.pageY;
+		$i.css({
+		    "z-index": 999999999999999999999999999999999999999999999999999999999999999999999,
+		    "top": y - 20,
+		    "left": x,
+		    "position": "absolute",
+		    "font-weight": "bold",
+		    "color": "rgb("+~~(255*Math.random())+","+~~(255*Math.random())+","+~~(255*Math.random())+")"
+		});
+		$("body").append($i);
+		$i.animate({
+		    "top": y - 180,
+		    "opacity": 0
+		},
+		1500,
+		function() {
+		    $i.remove();
+		});
+	    });
+	});
+	</script>
+		
+		
+	<audio loop src="/music1.mp3" id="audio" autoplay preload="auto"></audio>
+	<script type="text/javascript">;//--创建页面监听，等待微信端页面加载完毕 触发音频播放
+		document.addEventListener('DOMContentLoaded', function () 
+		{
+    			function audioAutoPlay() 
+				{
+        				var audio = document.getElementById('audio');
+            				audio.play();
+        				document.addEventListener("WeixinJSBridgeReady", function () 
+						{
+            						audio.play();
+        					}, false);
+    				}
+    			audioAutoPlay();
+		});
+	
+		//--创建触摸监听，当浏览器打开页面时，触摸屏幕触发事件，进行音频播放
+		document.addEventListener('touchstart', function () 
+			{
+    				function audioAutoPlay() 
+					{
+        					var audio = document.getElementById('audio');
+            					audio.play();
+    					}
+    				audioAutoPlay();
+			});
+	</script>
+	
+	</body>
+</html>
